@@ -6,3 +6,4 @@ from .models import Apply
 def adview(request):
     applies = Apply.objects.all()
     return render(request, 'adview.html', {'applies' : applies})
+
