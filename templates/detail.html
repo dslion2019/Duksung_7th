@@ -20,6 +20,11 @@
         <br>
         <a href="{% url 'home' %}"> 목록으로 돌아가기 </a>
     </div>
+
+<!-- delete post -->
+    <div class="crud action">
+        <a href="{% url 'delete_post' post.pk %}"> 삭제하기 </a>
+    </div>
     
     
 </body>
