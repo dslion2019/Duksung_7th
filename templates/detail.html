@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> detail </title>
+</head>
+<body>
+    <div class="container">
+
+        <p>  <img src="{{ post.cover.url }}" alt="{{ post.title }}" width=612px height=612px> </p>
+        <p> title : {{ post.title }}</p>
+        <p> {{ post.caption }} </p>
+
+    </div>
+    
+    <div class="buttons">
+        <a href="{% url 'add_post' %}"> 나도 사진 올리기 </a>
+        <br>
+        <a href="{% url 'home' %}"> 목록으로 돌아가기 </a>
+    </div>
+    
+    
+</body>
+</html>
