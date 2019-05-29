@@ -1,11 +1,18 @@
 <!--후기방 내용 작성 페이지-->
-<div class = 'container'>
-    <form method = 'RPOST'>
-        {% csrf_token%}
+<div class='container'>
+    <form method = 'POST'>
+        {% csrf_token %}
         <table>
+            <form method = 'POST'>
+                <input type = "radio" name="div_01" id="div_01" value="멋사MT"/>멋사MT
+                <input type = "radio" name="div_02" id="div_02" value="아이디어톤"/>아이디어톤
+                <input type = "radio" name="div_03" id="div_03" value="해커톤"/>해커톤
+                <input type = "radio" name="div_04" id="div_04" value="세션"/>세션
+                <input type = "radio" name="div_05" id="div_05" value="기타"/>기타
+            </form>
             {{form.as_table}}
         </table>
         <br>
-        <input class="btn btn-dark" type="submit" value="저장">
+        <input class = "btn btn-dark" type = "submit" value="저장">
     </form>
 </div>
