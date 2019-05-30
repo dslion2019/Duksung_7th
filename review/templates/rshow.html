@@ -50,7 +50,7 @@
     
     <span style="float: right"><button type="button" onclick="location.href='{% url 'rpost' %}'">후기쓰기</button></span>
         
-    </form><br><br>
+    <br><br>
 
     <!-------------------------------->
     <DIV id=div_01 >
@@ -74,17 +74,19 @@
 
    </table>
    {%for review in reviews.all%}
-    <div class = "container">
-        <h3>이름 : {{review.name}}</h3>
-        <h3>맡은 역할 : {{review.role}}</h3>
-        <h2>후기</h2>
-        <p>{{review.body}}</p>
-        <p>{{review.update_date}}</p>
-        <small class="text-muted">{{review.pub_date}}</small> 
-        <a href = "{% url 'redit' pk=review.pk %}">수정</a>
-        <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
-    </div>
-{%endfor%}
+   {%if review.title == '01'%}
+        <div class = "container">
+            <h3>이름 : {{review.name}}</h3>
+            <h3>맡은 역할 : {{review.role}}</h3>
+            <h2>후기</h2>
+            <p>{{review.body}}</p>
+            <p>{{review.update_date}}</p>
+            <small class="text-muted">{{review.pub_date}}</small> 
+            <a href = "{% url 'redit' pk=review.pk %}">수정</a>
+            <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
+        </div>
+    {%endif%}
+    {%endfor%}
 
 </DIV>
 
@@ -114,6 +116,7 @@
 
 </table>
 {%for review in reviews.all%}
+{%if review.title == '02'%}
     <div class = "container">
         <h3>이름 : {{review.name}}</h3>
         <h3>맡은 역할 : {{review.role}}</h3>
@@ -124,6 +127,7 @@
         <a href = "{% url 'redit' pk=review.pk %}">수정</a>
         <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
     </div>
+{%endif%}
 {%endfor%}
 
 </DIV>
@@ -157,6 +161,7 @@
 
 </table>
 {%for review in reviews.all%}
+{% if review.title == '03'%}
     <div class = "container">
         <h3>이름 : {{review.name}}</h3>
         <h3>맡은 역할 : {{review.role}}</h3>
@@ -167,6 +172,7 @@
         <a href = "{% url 'redit' pk=review.pk %}">수정</a>
         <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
     </div>
+{%endif%}
 {%endfor%}
 
 </DIV>
@@ -199,6 +205,7 @@
 
 </table>
 {%for review in reviews.all%}
+{%if review.title == '04'%}
     <div class = "container">
         <h3>이름 : {{review.name}}</h3>
         <h3>맡은 역할 : {{review.role}}</h3>
@@ -209,6 +216,7 @@
         <a href = "{% url 'redit' pk=review.pk %}">수정</a>
         <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
     </div>
+{%endif%}
 {%endfor%}
 </DIV>
 <!------------------------------------------>
@@ -234,6 +242,7 @@
 
 </table>
 {%for review in reviews.all%}
+{%if review.title == '05'%}
     <div class = "container">
         <h3>이름 : {{review.name}}</h3>
         <h3>맡은 역할 : {{review.role}}</h3>
@@ -244,6 +253,7 @@
         <a href = "{% url 'redit' pk=review.pk %}">수정</a>
         <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
     </div>
+{%endif%}
 {%endfor%}
 
 </DIV>
