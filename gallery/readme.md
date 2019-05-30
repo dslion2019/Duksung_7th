@@ -5,6 +5,7 @@
 1. pillow
 2. pilkit
 3. imagekit
+4. django-bootstrp-modal-forms
 
 ## 또 할 것
 
