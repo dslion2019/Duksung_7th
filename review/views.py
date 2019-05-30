@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404,redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import ReviewForm
 from .models import Review
 from django.utils import timezone
@@ -16,7 +16,6 @@ def rpost(request):
             return redirect('rshow') 
     else:
         form = ReviewForm() 
-
         return render(request, 'rpost.html',{'form' : form})
 
 def rshow(request):
