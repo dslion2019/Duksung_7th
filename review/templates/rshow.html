@@ -48,7 +48,7 @@
 <body>
     <h1>멋쟁이 사자처럼 활동 후기방</h1>
     
-    <span style="float: right"><button type="button" onclick="location.href='rpost.html'">후기쓰기</button></span>
+    <span style="float: right"><button type="button" onclick="location.href='{% url 'rpost' %}'">후기쓰기</button></span>
         
     </form><br><br>
 
@@ -73,6 +73,18 @@
        <tr><td  colspan=4 align=center style='padding-top:20px;'>MT~</td></tr>
 
    </table>
+   {%for review in reviews.all%}
+    <div class = "container">
+        <h3>이름 : {{review.name}}</h3>
+        <h3>맡은 역할 : {{review.role}}</h3>
+        <h2>후기</h2>
+        <p>{{review.body}}</p>
+        <p>{{review.update_date}}</p>
+        <small class="text-muted">{{review.pub_date}}</small> 
+        <a href = "{% url 'redit' pk=review.pk %}">수정</a>
+        <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
+    </div>
+{%endfor%}
 
 </DIV>
 
@@ -101,6 +113,18 @@
 <tr><td  colspan=4 align=center style='padding-top:20px;'>아이디어톤~ </td></tr>
 
 </table>
+{%for review in reviews.all%}
+    <div class = "container">
+        <h3>이름 : {{review.name}}</h3>
+        <h3>맡은 역할 : {{review.role}}</h3>
+        <h2>후기</h2>
+        <p>{{review.body}}</p>
+        <p>{{review.update_date}}</p>
+        <small class="text-muted">{{review.pub_date}}</small> 
+        <a href = "{% url 'redit' pk=review.pk %}">수정</a>
+        <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
+    </div>
+{%endfor%}
 
 </DIV>
 
@@ -132,6 +156,18 @@
 <tr><td  colspan=4 align=center style='padding-top:20px;'>해커톤~</td></tr>
 
 </table>
+{%for review in reviews.all%}
+    <div class = "container">
+        <h3>이름 : {{review.name}}</h3>
+        <h3>맡은 역할 : {{review.role}}</h3>
+        <h2>후기</h2>
+        <p>{{review.body}}</p>
+        <p>{{review.update_date}}</p>
+        <small class="text-muted">{{review.pub_date}}</small> 
+        <a href = "{% url 'redit' pk=review.pk %}">수정</a>
+        <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
+    </div>
+{%endfor%}
 
 </DIV>
 
@@ -162,7 +198,18 @@
 <tr><td  colspan=4 align=center style='padding-top:20px;'>세션~</td></tr>
 
 </table>
-
+{%for review in reviews.all%}
+    <div class = "container">
+        <h3>이름 : {{review.name}}</h3>
+        <h3>맡은 역할 : {{review.role}}</h3>
+        <h2>후기</h2>
+        <p>{{review.body}}</p>
+        <p>{{review.update_date}}</p>
+        <small class="text-muted">{{review.pub_date}}</small> 
+        <a href = "{% url 'redit' pk=review.pk %}">수정</a>
+        <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
+    </div>
+{%endfor%}
 </DIV>
 <!------------------------------------------>
 <DIV id=div_05 style="DISPLAY: none">
@@ -186,6 +233,18 @@
 <tr><td  colspan=4 align=center style='padding-top:20px;'>기타~</td></tr>
 
 </table>
+{%for review in reviews.all%}
+    <div class = "container">
+        <h3>이름 : {{review.name}}</h3>
+        <h3>맡은 역할 : {{review.role}}</h3>
+        <h2>후기</h2>
+        <p>{{review.body}}</p>
+        <p>{{review.update_date}}</p>
+        <small class="text-muted">{{review.pub_date}}</small> 
+        <a href = "{% url 'redit' pk=review.pk %}">수정</a>
+        <a href = "{% url 'delete' pk=review.pk %}">삭제</a>
+    </div>
+{%endfor%}
 
 </DIV>
 

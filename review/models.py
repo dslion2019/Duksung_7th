@@ -1,11 +1,9 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 class Review(models.Model):
-    who = models.CharField(max_length=200)
-    #라디오 버튼 처리?? category
+    name = models.CharField(max_length=200)
     role = models.CharField(max_length=200)
-    write = models.TextField()
-
-    def __str__(self):
-        return self.who
+    body = models.TextField()
+    update_date = models.DateTimeField(auto_now=True) 
