@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path, include
 import apply.views
 
@@ -22,4 +24,8 @@ urlpatterns = [
     path('addetail/<int:apply_id>/', apply.views.addetail, name="addetail"),
     path('form/', apply.views.form, name='form'), # 지원하기
     path('adview/', apply.views.adview, name='adview'),
+    path('form/save/', apply.views.save, name='save'),
+    path('form/submit/', apply.views.submit, name='submit'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
