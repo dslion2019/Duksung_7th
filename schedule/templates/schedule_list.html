@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+{% load static %}
+  <meta charset='utf-8' />
+  
+  <link href='{% static 'fullcalendar/core/main.css' %}' rel='stylesheet' />
+  <link href='{% static 'fullcalendar/daygrid/main.css' %}' rel='stylesheet' />
+  <script src='{% static 'fullcalendar/core/main.js' %}'></script>
+  <script src='{% static 'fullcalendar/daygrid/main.js' %}'></script>    
+
+  <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'dayGrid' ],
+      defaultView: 'dayGridMonth',
+      selectable: true,
+      events: [
+          {% for event in object_list %}
+              {
+                  id: {{ event.id }},
+                  title: '{{ event.title }}',
+                  start: '{{ event.start_date|date:"c" }}',
+                  end: '{{ event.end_date|date:"c" }}',
+              },
+          {% endfor %}
+      ],
+      eventClick: function (info) {
+          if (confirm(info.event.title + '을(를) 삭제하시겠습니까?')){
+              document.location.href = info.event.id + '/delete/';
+          }
+      },
+      select: function (selectionInfo) {
+          var input = prompt('일정 제목을 입력해주세요.');
+          if(input) {
+              document.getElementById('title').value = input;
+              document.getElementById('start_date').value = selectionInfo.startStr;
+              document.getElementById('end_date').value = selectionInfo.endStr;
+              document.getElementById("event_form").submit();
+          }
+      }
+});
+
+      calendar.render();
+});
+  </script>
+</head>
+<body style="text-align:center;">
+    <div id='calendar'  style="display:inline-block; width:740px;"></div>
+    <form action="{% url 'create' %}" method="post" id="event_form">
+        {% csrf_token %}
+        <input type="hidden" name="title" id="title">
+        <input type="hidden" name="start_date" id="start_date">
+        <input type="hidden" name="end_date" id="end_date">
+    </form>
+</body>
+
+</html>
