@@ -25,6 +25,7 @@
 <body>
     <div class="container">
     {% for apply in applies %}
+        {% if apply.isFinal == True %}
         <div class="card">
             <a href="{% url 'addetail' apply.id %}">
             <div class="card-body">
@@ -38,6 +39,7 @@
             </a>
         </div>
         <br>
+        {% endif %}
     {% endfor %}
     </div>
 </body>
