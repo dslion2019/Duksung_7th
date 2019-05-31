@@ -1,11 +1,40 @@
 <!--후기방 내용 작성 페이지-->
+<style>
+    h1 {background-color : #49111C; color : white; text-align:center;}
+    h2 {background-color : #B4A6AB; text-align : center}
+    * { background-color : linen; text-align : center;}
+
+    </style>
+<h1>후기 작성</h1>
 <div class='container'>
     <form method = 'POST'>
         {% csrf_token %}
         <table>
-            {{form.as_table}}
+           <h2 style = "width:200px; height:35px; text-alingn:center; ">카테고리</h2>
+            <!--{{form.title}}-->
+                <select name = "title" require id = "id_title" style="width:200px; height:25px;">
+                    <option value selected>선택</option>
+                    <option value="01">멋사MT</option>
+                    <option value="02">아이디어톤</option>
+                    <option value="03">해커톤</option>
+                    <option value="04">세션</option>
+                    <option value="05">기타</option>
+                <select>
+
+           <h2 style = "width:200px; height:35px; text-align:center; ">이름</h2>
+           <!--{{form.name}}-->
+                <input type="text" name="name" maxlength="300" required id = "id_name" style="width:200px; height:25px; " >
+           <h2 style = "width:200px; height:35px; text-align:center; ">역할</h2>
+           <!--{{form.role}}-->
+                <input type="text" name="role" maxlength="300" required id = "id_role" style="width:200px; height:25px; ">
+           <h2 style = "width:200px; height:35px; text-align:center; ">후기</h2>
+                <br>
+            <!--{{form.body}}-->
+                <textarea name="body" cols="80" rows="20" required id="id_body">
+                </textarea>
         </table>
         <br>
         <input class = "btn btn-dark" type = "submit" value="저장">
     </form>
 </div>
+ 
