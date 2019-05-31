@@ -1,14 +1,13 @@
-{% load staticfiles %}
 <!DOCTYPE html>
 <html lang = "en">
   <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset = "utf-8">
     <meta name = "viewpoint" content = "width=device-width, initial-scale=1">
-    <link rel = "stylesheet" href = https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css>
+    
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js">
     </script>
+    
     <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <style>
 .navbar-inverse { background-color: #7C2529}
@@ -36,8 +35,8 @@
   width: 30%;
   padding-right: 10px;
   padding-left: 10px;
-
 }
+
 </style>
   </head>
 
@@ -71,11 +70,51 @@
 
 
     </div>
+ <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Location</h4>
+          <p class="lead mb-0"> DUKSUNG WOMEN'S UNIVERSITY
+            <br>01369 | 서울 도봉구 삼양로144길 33 (쌍문동, 덕성여자대학교)</p>
+        </div>
+        <div class="col-md-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Around the Web</h4>
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item">
+              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://ko-kr.facebook.com/likelion.ds/">
+                <i class="fab fa-fw fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.instagram.com/likelion_ds/?hl=ko">
+                <i class="fab fa-fw fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="http://www.duksung.ac.kr/">
+                <i class="fab fa-fw fa-dribbble"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h4 class="text-uppercase mb-4">About LIKELION</h4>
+          <p class="lead mb-0">HACK YOUR LIFE <br> 내 아이디어를 내 손으로 실현한다.<br>
+            <a href="https://likelion.net/" style="color: white">멋쟁이사자처럼 :: LIKELION </a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-
-      
-    <img src = '{% static "img/footerfooter.png" %}' width = "100%" height = "100%" />
-
+  <div class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; likelion_duksung_7th Website 2019</small>
+    </div>
+  </div>
+    </div>
+  </footer>
 
   </body>
 </html>
