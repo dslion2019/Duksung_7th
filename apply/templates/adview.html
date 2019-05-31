@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <title>Duksung!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        a {
+            color: black;
+            font-size: 20px
+        }
+        a:hover {
+        text-decoration: none;
+        color: #946E83;
+        }
+        body {
+            margin-top: 4rem;
+            text-align: center;
+        }
+        table {
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -11,11 +28,16 @@
         <div class="card">
             <a href="{% url 'addetail' apply.id %}">
             <div class="card-body">
-                <p> {{apply.student_id}} </p>
-                <p> {{apply.name}} </p>
+                <table cellpadding="20px">
+                    <tr>
+                        <td> {{apply.student_id}} </td>
+                        <td> {{apply.name}} </td>
+                    </tr>
+                </table>
             </div>
             </a>
         </div>
+        <br>
     {% endfor %}
     </div>
 </body>
