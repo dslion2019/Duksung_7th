@@ -1,11 +1,60 @@
-<!--후기방 내용 수정 페이지-->
-<div class = 'container'>
-    <form method = 'RPOST'>
-        {% csrf_token%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+    @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+    @font-face { font-family: 'Atomy-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Atomy-Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+    .a{
+        display: inline-block;
+        padding: 20px;
+    }
+    h1{
+        margin: 20px;
+        padding: 15px;
+        background-color: #7C2529;
+        color: white;
+        text-align: center;
+        font-family: 'yg-jalnan';
+    }
+    .nav-link{
+        background-color: #B7888A;
+        color: white;
+        font-family: 'Atomy-Bold';
+
+    }
+
+    *{
+        background-color: linen;
+    }
+    button{
+        font-family: 'Atomy-Bold';
+        background-color: white;
+
+    }
+    span{
+        padding-right: 30px;
+        } 
+    div{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+	<h1>후기 수정</h1>
+<div class='container'>
+    <form method = 'POST'>
+        {% csrf_token %}
         <table>
             {{form.as_table}}
         </table>
         <br>
-        <input class="btn btn-dark" type="submit" value="수정">
+
+
+        <input class = "btn btn-dark" type = "submit" value="수정">
     </form>
 </div>
+
+</body>
+</html>

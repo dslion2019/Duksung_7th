@@ -1,11 +1,16 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 class Review(models.Model):
-    who = models.CharField(max_length=200)
-    #라디오 버튼 처리?? category
-    role = models.CharField(max_length=200)
-    write = models.TextField()
+    name = models.CharField(max_length=300)
+    role = models.CharField(max_length=300)
+    body = models.TextField()
+    TITLE = (('01','멋사MT'), ('02', '아이디어톤'), ('03', '해커톤'), ('04', '세션'), ('05', '기타'))
+    
+    title = models.CharField(max_length=2, choices=TITLE)
 
-    def __str__(self):
-        return self.who
+    update_date = models.DateTimeField(auto_now=True) 
+
+    def ___str___(self):
+        return self.title

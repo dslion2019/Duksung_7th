@@ -1,11 +1,55 @@
-<!--후기방 내용 작성 페이지-->
-<div class = 'container'>
-    <form method = 'RPOST'>
-        {% csrf_token%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Bootstrap 4</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<style>
+    @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+    @font-face { font-family: 'Atomy-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Atomy-Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+    h1 {background-color : #7C2529; color : white; text-align:center;}
+    h2 {background-color : #B4A6AB; text-align : center; width:200px; height:35px;  }
+    * { background-color : linen; text-align : center;}
+   
+    </style>
+<h1>후기 작성</h1>
+<div class='container'>
+    <form method = 'POST'>
+        {% csrf_token %}
         <table>
-            {{form.as_table}}
+        <div>
+           <h2 style = "width:200px; height:35px; text-alingn:center; ">카테고리</h2>
+            <!--{{form.title}}-->
+                <select name = "title" require id = "id_title">
+                    <option value selected>선택</option>
+                    <option value="01">멋사MT</option>
+                    <option value="02">아이디어톤</option>
+                    <option value="03">해커톤</option>
+                    <option value="04">세션</option>
+                    <option value="05">기타</option>
+                <select>
+        </div>
+
+        <div class="name">
+           <h2>이름</h2>
+           <!--{{form.name}}-->
+                <input type="text" name="name" maxlength="300" required id = "id_name" style="width:200px; height:25px; " >
+        </div>
+
+        <div class="role">
+           <h2>역할</h2>
+           <!--{{form.role}}-->
+                <input type="text" name="role" maxlength="300" required id = "id_role" style="width:200px; height:25px; ">
+        <div>
+
+        <div class="body">
+           <h2>후기</h2>
+                <br>
+            <!--{{form.body}}-->
+                <textarea name="body" cols="80" rows="20" required id="id_body"></textarea>
+        <div>
+
         </table>
         <br>
-        <input class="btn btn-dark" type="submit" value="저장">
+        <input class = "btn btn-dark" type = "submit" value="저장">
     </form>
 </div>

@@ -1,0 +1,329 @@
+<!--후기방 메인페이지-->
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+   <title>Review</title>
+   <script type="text/javascript">
+    function show_layer(div_name) {
+
+        document.all.div_01.style.display="none";
+        document.all.div_02.style.display="none";
+        document.all.div_03.style.display="none";
+        document.all.div_04.style.display="none";
+        document.all.div_05.style.display="none";
+
+        switch(div_name)
+        {
+            case'1':
+            document.all.div_01.style.display="";
+            break;
+            case'2':
+            document.all.div_02.style.display="";
+            break;
+            case'3':
+            document.all.div_03.style.display="";
+            break;
+            case'4':
+            document.all.div_04.style.display="";
+            break;
+            case'5':
+            document.all.div_05.style.display="";
+            break;
+
+        }
+
+    }
+</script>
+
+<style type="text/css">
+    @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+    @font-face { font-family: 'Atomy-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Atomy-Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+    .a{
+        display: inline-block;
+        padding: 20px;
+    }
+    h1{
+        margin: 20px;
+        padding: 15px;
+        background-color: #7C2529;
+        color: white;
+        text-align: center;
+        font-family: 'yg-jalnan';
+    }
+    .nav-link{
+        background-color: #B7888A;
+        color: white;
+        font-family: 'Atomy-Bold';
+
+    }
+
+    *{
+        background-color: linen;
+    }
+    button{
+        font-family: 'Atomy-Bold';
+        background-color: white;
+
+    }
+    span{
+        padding-right: 30px;
+        } 
+    div{
+        text-align: center;
+    }
+</style>
+</head>
+<body style="background-color: linen;">
+    <h1>#Like_Lion_Review</h1>
+    
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'rpost' %}'">후기쓰기</button></span>
+
+    <br><br>
+
+    <!-------------------------------->
+    <DIV id=div_01 >
+        <ul class="nav nav-tabs justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="javascript:show_layer('1');">#멋사MT</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:show_layer('2');">#아이디어톤</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:show_layer('3');">#해커톤</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:show_layer('4');">#세션</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:show_layer('5');">#기타</a>
+        </li>
+    </ul>
+
+
+    <table width="707px" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-top: 30px;" >
+
+     <tr><td  colspan=4 align=center style='padding-top:20px;'>MT~</td></tr>
+     <hr>
+
+ </table>
+ {%for review in reviews.all%}
+ {%if review.title == '01'%}
+ <div class = "container">
+    <h3>이름 : {{review.name}}</h3>
+    <h3>맡은 역할 : {{review.role}}</h3>
+    <h2>후기</h2>
+    <p>{{review.body}}</p>
+    <p>{{review.update_date}}</p>
+    <small class="text-muted">{{review.pub_date}}</small> 
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'redit' pk=review.pk %}'">수정</button></span>
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'delete' pk=review.pk %}'">삭제</button></span>
+
+  
+</div>
+{%endif%}
+{%endfor%}
+
+</DIV>
+
+
+
+<!--------------------------------------------->
+
+<DIV id=div_02 style="DISPLAY: none">
+
+    <ul class="nav nav-tabs justify-content-center">
+
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('1');">#멋사MT</a>
+    </li> 
+    <li class="nav-item">
+        <a class="nav-link active" href="javascript:show_layer('2');">#아이디어톤</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('3');">#해커톤</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('4');">#세션</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('5');">#기타</a>
+    </li>
+</ul>
+
+
+
+<table width="707px" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-top: 30px;" >
+
+    <tr><td  colspan=4 align=center style='padding-top:20px;'>아이디어톤~ </td></tr>
+    <hr>
+</table>
+{%for review in reviews.all%}
+{%if review.title == '02'%}
+<div class = "container">
+    <h3>이름 : {{review.name}}</h3>
+    <h3>맡은 역할 : {{review.role}}</h3>
+    <h2>후기</h2>
+    <p>{{review.body}}</p>
+    <p>{{review.update_date}}</p>
+    <small class="text-muted">{{review.pub_date}}</small> 
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'redit' pk=review.pk %}'">수정</button></span>
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'delete' pk=review.pk %}'">삭제</button></span>
+
+</div>
+{%endif%}
+{%endfor%}
+
+</DIV>
+
+
+
+<!----------------------------------->
+
+<DIV id=div_03 style="DISPLAY: none">
+
+    <ul class="nav nav-tabs justify-content-center">
+
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('1');">#멋사MT</a>
+    </li> 
+    <li class="nav-item">
+        <a class="nav-link " href="javascript:show_layer('2');">#아이디어톤</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="javascript:show_layer('3');">#해커톤</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('4');">#세션</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('5');">#기타</a>
+    </li>
+</ul>
+
+<table width="707px" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-top: 30px;" >
+
+
+
+    <tr><td  colspan=4 align=center style='padding-top:20px;'>해커톤~</td></tr>
+    <hr>
+</table>
+{%for review in reviews.all%}
+{% if review.title == '03'%}
+<div class = "container">
+    <h3>이름 : {{review.name}}</h3>
+    <h3>맡은 역할 : {{review.role}}</h3>
+    <h2>후기</h2>
+    <p>{{review.body}}</p>
+    <p>{{review.update_date}}</p>
+    <small class="text-muted">{{review.pub_date}}</small> 
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'redit' pk=review.pk %}'">수정</button></span>
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'delete' pk=review.pk %}'">삭제</button></span>
+
+</div>
+{%endif%}
+{%endfor%}
+
+</DIV>
+
+
+
+<!------------------------------------>
+
+<DIV id=div_04 style="DISPLAY: none">
+
+    <ul class="nav nav-tabs justify-content-center">
+
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('1');">#멋사MT</a>
+    </li> 
+    <li class="nav-item">
+        <a class="nav-link " href="javascript:show_layer('2');">#아이디어톤</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('3');">#해커톤</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="javascript:show_layer('4');">#세션</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('5');">#기타</a>
+    </li>
+</ul>
+<table width="707px" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-top: 30px;" >
+
+
+
+    <tr><td  colspan=4 align=center style='padding-top:20px;'>세션~</td></tr>
+    <hr>
+</table>
+{%for review in reviews.all%}
+{%if review.title == '04'%}
+<div class = "container">
+    <h3>이름 : {{review.name}}</h3>
+    <h3>맡은 역할 : {{review.role}}</h3>
+    <h2>후기</h2>
+    <p>{{review.body}}</p>
+    <p>{{review.update_date}}</p>
+    <small class="text-muted">{{review.pub_date}}</small> 
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'redit' pk=review.pk %}'">수정</button></span>
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'delete' pk=review.pk %}'">삭제</button></span>
+
+</div>
+{%endif%}
+{%endfor%}
+</DIV>
+<!------------------------------------------>
+<DIV id=div_05 style="DISPLAY: none">
+
+    <ul class="nav nav-tabs justify-content-center">
+
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('1');">#멋사MT</a>
+    </li> 
+    <li class="nav-item">
+        <a class="nav-link " href="javascript:show_layer('2');">#아이디어톤</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('3');">#해커톤</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:show_layer('4');">#세션</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="javascript:show_layer('5');">#기타</a>
+    </li>
+</ul>
+
+<table width="707px" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-top: 30px;" >
+
+
+
+    <tr><td  colspan=4 align=center style='padding-top:20px;'>기타~</td></tr>
+    <hr>
+</table>
+{%for review in reviews.all%}
+{%if review.title == '05'%}
+<div class = "container">
+    <h3>이름 : {{review.name}}</h3>
+    <h3>맡은 역할 : {{review.role}}</h3>
+    <h2>후기</h2>
+    <p>{{review.body}}</p>
+    <p>{{review.update_date}}</p>
+    <small class="text-muted">{{review.pub_date}}</small> 
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'redit' pk=review.pk %}'">수정</button></span>
+    <span style="float: right"><button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'delete' pk=review.pk %}'">삭제</button></span>
+
+{%endif%}
+{%endfor%}
+
+</DIV>
+
+</body>
+</html>
