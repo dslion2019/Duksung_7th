@@ -20,4 +20,5 @@ import duksung.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', duksung.views.home, name='home'),
+    path('dslikelion/',duksung.views.base, name="base"),
 ]

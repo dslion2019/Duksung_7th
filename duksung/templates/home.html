@@ -1,11 +1,45 @@
-{% extends 'base.html' %}
 {% load staticfiles %}
-{% block content %}
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Freelancer - Start Bootstrap Theme</title>
+  {% load staticfiles %}
+  <!-- Bootstrap core CSS -->
+  <link href= '{% static "vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+  <!-- Custom fonts for this template -->
+  <link href= '{% static "vendor/fontawesome-free/css/all.min.css" %}' rel="stylesheet" type="text/css">
+  <link href= '{% static "https://fonts.googleapis.com/css?family=Montserrat:400,700"%}' rel="stylesheet" type="text/css">
+  <link href= '{% static "https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" %}' rel="stylesheet" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link href='{% static "vendor/magnific-popup/magnific-popup.css" %}' rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href= '{% static "css/freelancer.min.css" %}' rel="stylesheet">
+ 
+</head>
+
+<body id="page-top">
+<style>
+  header{
+    background-image: url('{% static "img/main_back.png" %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  </style>
  <!-- Navigation -->
  <nav class="navbar navbar-expand-lg bg-primary fixed-top text-uppercase" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top" >DUKSUNG LIKELION</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">DUKSUNG LIKELION</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase bg-secondary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -33,199 +67,216 @@
   </nav>
 
   <!-- Header -->
-  <header class="masthead bg-primary text-white text-center">
-    <div class="container">
-      <img class="img-fluid mb-5 d-block mx-auto" src= '{% static "img/profile.png" %}' alt="">
+  <header class="masthead text-white text-center ">
+    <div class="container main_back">
+      <img class="img-fluid mb-5 d-block mx-auto" src= '{% static "img/dslion.png" %}' alt="">
       <h1 class="text-uppercase mb-0">DUKSUNG LIKELION</h1>
       <hr class="star-light">
       <div class="text-center mt-4">
         <a class="btn btn-xl btn-outline-light" href="#">
           <i class="fas fa-download mr-2"></i>
-          Apply Now!
+          APPLY NOW!
+        </a>
+      </div>
+    </div>    
+  </header>
+<!-- Portfolio Grid Section -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <h2 class="text-center text-uppercase text-secondary mb-0">Photo</h2>
+    <hr class="star-dark mb-5">
+    <div class="row">
+      <div class="col-md-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <i class="fas fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src='{% static "img/ot1.jpg" %}' alt="">
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <i class="fas fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src='{% static "img/ot2.jpg" %}' alt="">
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <i class="fas fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src='{% static "img/mt1.jpg" %}' alt="">
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <i class="fas fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src='{% static "img/newbithon.jpg" %}' alt="">
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-5">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <i class="fas fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src='{% static "img/ideathon.jpg" %}' alt="">
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <i class="fas fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src='{% static "img/dshackathon.jpg" %}' alt="">
         </a>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- Portfolio Grid Section -->
-  <section class="portfolio" id="portfolio">
-    <div class="container">
-      <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-      <hr class="star-dark mb-5">
-      <div class="row">
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src='{% static "img/portfolio/cabin.png" %}' alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src='{% static "img/portfolio/cake.png" %}' alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src='{% static "img/portfolio/circus.png" %}' alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src='{% static "img/portfolio/game.png" %}' alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-5">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src='{% static "img/portfolio/safe.png" %}' alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src='{% static "img/portfolio/submarine.png" %}' alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="bg-primary text-white mb-0" id="about">
-    <div class="container">
-      <h2 class="text-center text-uppercase text-white">About</h2>
+   <!-- About Section -->
+   <section class="bg-primary text-white mb-0" id="about">
+    
+    <div class="container"> 
+      <h2 class="text-center text-uppercase text-white">ABOUT DUKSUNG LIKELION</h2>
       <hr class="star-light mb-5">
-      <div class="row">
-        <div class="col-lg-4 ml-auto">
-          <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-        </div>
-        <div class="col-lg-4 mr-auto">
-          <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+      <div>
+        <div style="margin-left:auto;margin-right:auto;width:70%; text-align:center; "> <br>
+          <h5>멋쟁이 사자처럼?</h5>
+           전공이나 실력과 상관없이 프로그래밍을 함께 배워 자신만의 웹서비스를 만들 수 있는 동아리 입니다.
         </div>
       </div>
-      
+      <br><br> 
+      <div style="margin-left:auto;margin-right:auto;width:70%; text-align:center;"> <h5>프로그래밍 교육</h5>
+              프론트엔드 : HTML/ CSS /Javascript<br>
+              백엔드 : Django / Python<br>
+              Classlion 중앙강의 : Web-basig/ AWS ect<br>
+              기타 : Git&Github/ Heroku<br>
+              <br><br>
+             <h5>아이티어톤 및 해커톤</h5>
+              자신의 아이디어를 발전시키고, 직접 웹을 개발하는 행사<br>
+          </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
-      <h2 class="text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+      <h2 class="text-center text-uppercase text-secondary mb-0">운영진 소개</h2>
       <hr class="star-dark mb-5">
       <div class="row">
         <div class="col-lg-8 mx-auto">
+          <br>
           <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
           <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-          <form name="sentMessage" id="contactForm" novalidate="novalidate">
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Name</label>
-                <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Email Address</label>
-                <input class="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address.">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Phone Number</label>
-                <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Message</label>
-                <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <br>
-            <div id="success"></div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
-            </div>
-          </form>
+          <table class="qwerasdfp_study3">
+            <tr>
+              <td> 
+                  <div class="row">
+                      <div class="col-xs-6 col-md-3_1">
+                          <img src={% static 'img/jeon.png' %} alt="...">
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div><p>멋쟁이 사자처럼 7기 운영진 전유현</p></div>
+              </td>
+              <td>
+                  <div class="row">
+                      <div class="col-xs-6 col-md-3_2">
+                          <img src={% static 'img/baek.png' %} alt="...">
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div><p>멋쟁이 사자처럼 7기 운영진 백지연</p></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <br>
+                <br>
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td> 
+                  <div class="row">
+                      <div class="col-xs-6 col-md-3_3">
+                          <img src={% static 'img/cho.png' %} alt="...">
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div><p>멋쟁이 사자처럼 7기 운영진 조혜영</p></div>
+              </td>
+              <td>
+                  <div class="row">
+                      <div class="col-xs-6 col-md-3_4">
+                          <img src={% static 'img/min.png' %} alt="...">
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div><p>멋쟁이 사자처럼 7기 운영진 민주희</p></div>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">
       <div class="row">
         <div class="col-md-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Location</h4>
-          <p class="lead mb-0">2215 John Daniel Drive
-            <br>Clark, MO 65243</p>
+          <p class="lead mb-0"> DUKSUNG WOMEN'S UNIVERSITY
+            <br>01369 | 서울 도봉구 삼양로144길 33 (쌍문동, 덕성여자대학교)</p>
         </div>
         <div class="col-md-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Around the Web</h4>
           <ul class="list-inline mb-0">
             <li class="list-inline-item">
-              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://ko-kr.facebook.com/likelion.ds/">
                 <i class="fab fa-fw fa-facebook-f"></i>
               </a>
             </li>
             <li class="list-inline-item">
-              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                <i class="fab fa-fw fa-google-plus-g"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                <i class="fab fa-fw fa-twitter"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.instagram.com/likelion_ds/?hl=ko">
                 <i class="fab fa-fw fa-linkedin-in"></i>
               </a>
             </li>
             <li class="list-inline-item">
-              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="http://www.duksung.ac.kr/">
                 <i class="fab fa-fw fa-dribbble"></i>
               </a>
             </li>
           </ul>
         </div>
         <div class="col-md-4">
-          <h4 class="text-uppercase mb-4">About Freelancer</h4>
-          <p class="lead mb-0">Freelance is a free to use, open source Bootstrap theme created by
-            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+          <h4 class="text-uppercase mb-4">About LIKELION</h4>
+          <p class="lead mb-0">HACK YOUR LIFE <br> 내 아이디어를 내 손으로 실현한다.<br>
+            <a href="https://likelion.net/" style="color: white">멋쟁이사자처럼 :: LIKELION </a></p>
         </div>
       </div>
     </div>
@@ -233,7 +284,7 @@
 
   <div class="copyright py-4 text-center text-white">
     <div class="container">
-      <small>Copyright &copy; Your Website 2019</small>
+      <small>Copyright &copy; likelion_duksung_7th Website 2019</small>
     </div>
   </div>
 
@@ -255,13 +306,13 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
+            <h2 class="text-secondary text-uppercase mb-0">2019.3.16 7기 OT</h2>
             <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src= '{% static "img/portfolio/cabin.png" %}' alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+            <img class="img-fluid mb-5" src= '{% static "img/ot1.jpg" %}' alt="">
+            <p class="mb-5">서울시립대에서 멋쟁이 사자처럼 7기들이 처음으로 만난 자리를 가졌습니다.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
-              Close Project</a>
+              Close</a>
           </div>
         </div>
       </div>
@@ -277,13 +328,13 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
+            <h2 class="text-secondary text-uppercase mb-0">2019.3.16 7기 OT</h2>
             <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src= '{% static "img/portfolio/cake.png" %}' alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+            <img class="img-fluid mb-5" src= '{% static "img/ot2.jpg" %}' alt="">
+            <p class="mb-5">서울시립대에서 멋쟁이 사자처럼 7기들이 처음으로 만난 자리를 가졌습니다.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
-              Close Project</a>
+              Close</a>
           </div>
         </div>
       </div>
@@ -299,13 +350,13 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
+            <h2 class="text-secondary text-uppercase mb-0">2019.3.16 7기 MT</h2>
             <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src='{% static "img/portfolio/circus.png" %}' alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+            <img class="img-fluid mb-5" src='{% static "img/mt1.jpg" %}' alt="">
+            <p class="mb-5">덕성여대 아기사자들이 청평으로 MT를 가서 고기도 먹고 친해지는 시간을 가졌습니다.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
-              Close Project</a>
+              Close</a>
           </div>
         </div>
       </div>
@@ -321,13 +372,13 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
+            <h2 class="text-secondary text-uppercase mb-0">2019.5.4 뉴비톤</h2>
             <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src='{% static "img/portfolio/game.png" %}' alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+            <img class="img-fluid mb-5" src='{% static "img/newbithon.jpg" %}' alt="">
+            <p class="mb-5">많은 아기사자들이 난생처음 해커톤에 참여하는 시간을 가졌습니다.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
-              Close Project</a>
+              Close</a>
           </div>
         </div>
       </div>
@@ -343,13 +394,13 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
+            <h2 class="text-secondary text-uppercase mb-0">2019.5.19 여대 아이디어톤</h2>
             <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src= '{% static "img/portfolio/safe.png" %}' alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+            <img class="img-fluid mb-5" src= '{% static "img/ideathon.jpg" %}' alt="">
+            <p class="mb-5">덕성, 숙명, 성신, 이화, 서울, 동덕 6개의 여대들이 모여 아이디어톤에 참여했습니다.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
-              Close Project</a>
+              Close</a>
           </div>
         </div>
       </div>
@@ -365,13 +416,13 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
+            <h2 class="text-secondary text-uppercase mb-0">2019.5.31 덕성여대 해커톤</h2>
             <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src=  '{% static "img/portfolio/submarine.png" %}' alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+            <img class="img-fluid mb-5" src=  '{% static "img/dshackathon.jpg" %}' alt="">
+            <p class="mb-5">1학기 마지막 세션이자 지금 이 홈페이지를 만들고 있는 시간을 가졌습니다.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
-              Close Project</a>
+              Close</a>
           </div>
         </div>
       </div>
@@ -392,4 +443,5 @@
 
   <!-- Custom scripts for this template -->
   <script src='{% static "js/freelancer.min.js" %}'></script>
-  {% endblock %}
+</body>
+</html>
