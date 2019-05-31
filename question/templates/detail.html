@@ -22,16 +22,16 @@
       body{
         background-color:linen;
       }
-      .container {margin-top: 70px;margin-right:80px}
+      #container_board {margin-top: 70px;margin-right:80px}
      
   </style>
 </head>
 
-<body>
+<body style="background-color: linen">
    
 
 <form method = 'POST'> {% csrf_token %}
-            <div class="container">
+            <div class="container" id="container_board">
                 
                 <h1>{{board.title}}</h1>
                 
@@ -54,12 +54,6 @@
     
 </form>   
 
-</body>
-</html> 
-
-
-</div>
-
 <br><br>
 
 <!--댓글쓰기 폼-->
@@ -68,17 +62,18 @@
     <div class="card-body"></div>
         <form method="POST" action="comment/write/">
         {% csrf_token %}
-        <textarea rows="5" cols="80" name="content">
+        <textarea rows="5" cols="130" name="content">
 
         </textarea>
         <br><br>
     
-        <button type="submit" class="btn btn-primary">등록</button>
+        <button type="submit" class="btn btn-outline-danger">등록</button>
 
         </form>
     </div>
 </div>
  
+<br>
 
 <!--댓글 목록을 출력할 영역-->
 {% for comment in board.comments.all %}

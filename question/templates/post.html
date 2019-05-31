@@ -29,7 +29,7 @@
       @font-face { font-family: 'Atomy-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Atomy-Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
       * {font-family: 'Atomy-Bold';}
       * {background-color:linen}
-      .container {margin-top: 70px;margin-right:80px}
+      #container_post {margin-top: 70px;margin-right:80px}
   </style>
 </head>
 
@@ -39,7 +39,7 @@
 <form method = 'POST'action ='' enctype="multipart/form-data"> {% csrf_token %}
     
         
-        <div class="container" >
+        <div class="container" id="container_post" >
              <div class="form-group">
                     <label for="formGroupExampleInput">제목</label>
                     <!--<input type="text" class="form-control" id="formGroupExampleInput" placeholder="subject" required><!--> 
