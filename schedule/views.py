@@ -7,7 +7,7 @@ from schedule.models import Schedule
 
 
 class ScheduleListView(ListView):
-    template_name = 'schdule_list.html'
+    template_name = 'schedule_list.html'
     model = Schedule
 
 
@@ -21,7 +21,7 @@ class ScheduleCreateView(RedirectView):
 
         if title and start_date and end_date:
             Schedule.objects.create(title=title, start_date=start_date, end_date=end_date)
-            return super(ScheduleCreateView, self).post(request, *args, **kwargs)
+            return super(ScheduleCreateView, self).post(request, *args, **kwargs) 
         else:
             raise Http404
 
