@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Apply(models.Model):
-    name = models.CharField(max_length=6)
-    major = models.CharField(max_length=10,null=True)
+    name = models.CharField(max_length=30)
+    major = models.CharField(max_length=30,null=True)
     student_id = models.IntegerField(null=True)
     email = models.EmailField(null=True)
     phone = models.IntegerField(null=True)
