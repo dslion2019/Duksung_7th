@@ -35,12 +35,13 @@
   <style>
       @font-face { font-family: 'Atomy-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Atomy-Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
       * {font-family: 'Atomy-Bold';}
-      * {background-color:linen}
+      background-color:linen
       .container {margin-top: 70px;margin-right:80px}
+      .comment_body {margin-top:10px; margin-left:130px}
   </style>
 </head>
 
-<body>
+<body style="background-color: linen">
    
 
 <form method = 'POST'> {% csrf_token %}
@@ -53,47 +54,44 @@
                 <img src="{{ board.photo.url }}" alt="" width="700px" height="500px">
                 {% endif %}
                 <p> 조회수:{{ board.hits }}</p> 
-                <a href="{% url 'show' %}">뒤로</a>
-                <a href="{% url 'edit' pk=board.pk %}"> 글 수정</a>
-                <br>
-                <a href="{% url 'delete' pk=board.pk %}">삭제</a>
+                <a href="{% url 'show' %}" class="btn btn-primary">뒤로</a>
+                <a href="{% url 'edit' pk=board.pk %}" class="btn btn-primary">글 수정</a>
+                <a href="{% url 'delete' pk=board.pk %}" class="btn btn-primary">삭제</a>
             </div>
     
 </form>   
-
-</body>
-</html> 
-
-
-</div>
 
 <br><br>
 
 <!--댓글쓰기 폼-->
 <div class="container">
-    <h4 class="card-header">댓글</h4>
+    <h5 class="card-header">댓글</h5>
     <div class="card-body"></div>
         <form method="POST" action="comment/write/">
         {% csrf_token %}
-        <textarea rows="5" cols="80" name="content">
+        <textarea rows="5" cols="84" name="content">
 
         </textarea>
         <br><br>
     
-        <button type="submit" class="btn btn-primary">등록</button>
+        <button type="submit" class="btn btn-dark">등록</button>
 
         </form>
     </div>
 </div>
  
+<br>
 
 <!--댓글 목록을 출력할 영역-->
 {% for comment in board.comments.all %}
 <div class="comment_body">
-        <h5>{{comment.content}}</h5>
+        <h6>{{comment.content}}</h6>
         <small>{{comment.created_at}}</small>
-        <a href="{% url 'comment_edit' board.pk comment.pk %}">수정</a>
+        <a href="{% url 'comment_edit' board.pk comment.pk %}"><input class="btn btn-dark" type="submit" value="수정"></a>
         
 
 </div>
 {% endfor %}
+
+</body>
+</html> 
