@@ -1,9 +1,9 @@
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 from django.urls import reverse_lazy, reverse
 from django.utils import timezone
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 from .models import Post
 
 
@@ -37,8 +37,21 @@ class UpdatePostView(UpdateView):
     form_class = PostForm
 
     def get_absolute_url(self):
-        return reverse('detail_post', kwargs={'pk': self.pk})
-        
+        return reverse('gallery_detail', kwargs={'pk': self.pk})
+
+
+def gallerycomment(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('gallery_detail', pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'galleryaddcomment.html', {'form': form})
 
         
     

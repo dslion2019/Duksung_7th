@@ -1,6 +1,7 @@
 from django.urls import path
-
+from . import views
 from .views import HomePageView, CreatePostView, DetailPostView, UpdatePostView, DeletePostView
+
 
 urlpatterns = [
     path('gallery/', HomePageView.as_view(), name='gallery_main'),
@@ -8,5 +9,6 @@ urlpatterns = [
     path('gallery/<int:pk>/', DetailPostView.as_view(), name='gallery_detail'),
     path('gallery/<int:pk>/delete/', DeletePostView.as_view(), name='gallery_delete'),
     path('gallery/<int:pk>/edit/', UpdatePostView.as_view(), name='gallery_edit'),
+    path('gallery/<int:pk>/addcomment/',views.gallerycomment, name='gallery_add_comment'),
    
-]
+    ]
