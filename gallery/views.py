@@ -10,7 +10,7 @@ from .models import Post
 
 class HomePageView(ListView):
     model = Post
-    template_name = 'home.html'
+    template_name = 'gallerymain.html'
     context_object_name ='post_list'
 
     def get_queryset(self):
@@ -19,21 +19,21 @@ class HomePageView(ListView):
 class CreatePostView(CreateView):
     model = Post
     form_class = PostForm
-    template_name = 'post.html'
-    success_url = reverse_lazy('home')
+    template_name = 'gallerypost.html'
+    success_url = reverse_lazy('gallery_main')
 
 class DetailPostView(DetailView):
     model = Post
-    template_name = 'detail.html'
+    template_name = 'gallerydetail.html'
 
 class DeletePostView(DeleteView):
     model = Post
-    template_name='delete.html'
-    success_url = reverse_lazy('home')
+    template_name='gallerydelete.html'
+    success_url = reverse_lazy('gallery_main')
 
 class UpdatePostView(UpdateView):
     model = Post
-    template_name = 'post.html'
+    template_name = 'gallerypost.html'
     form_class = PostForm
 
     def get_absolute_url(self):
