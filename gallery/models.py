@@ -5,8 +5,10 @@ from django.urls import reverse
 
 
 class Post(models.Model):
+
+#login required before post
     cover = models.ImageField(upload_to='images/', blank=False)
-    title = models.CharField(max_length=50, blank=True)
+    title = models.CharField(max_length=50, default='')
     caption = models.TextField(max_length=200, blank=True, default='')
     birthday = models.DateTimeField(auto_now=True)
     

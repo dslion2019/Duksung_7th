@@ -1,0 +1,30 @@
+{% extends "gallerybase.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block content %}
+
+textarea {
+    
+}
+</style>
+</head>
+
+<header>
+    <h1> 새로운 사진 올리기 </h1>
+</header>
+
+<body>
+
+<div class="form_box">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">올리기</button>
+    </form>
+</div>
+
+</header>
+</html>
+
+{% endblock content %}

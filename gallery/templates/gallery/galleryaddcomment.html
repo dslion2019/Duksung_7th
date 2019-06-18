@@ -1,0 +1,25 @@
+{% extends "gallerybase.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+{% block content %}
+</style>
+    
+
+</head>
+<body>
+    <h1> 새로운 댓글 </h1>
+<br>
+    <div class="gallery_comment_form">
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">저장하기</button>
+        </form>
+    </div>
+    
+</body>
+</html>
+
+{% endblock content %}

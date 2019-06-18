@@ -56,7 +56,7 @@ ROOT_URLCONF = 'dsWeb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [ os.path.join(BASE_DIR, 'gallery/templates/gallery') ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,6 +123,6 @@ STATIC_URL = '/static/'
 STATIC_DIRS = (os.path.join(BASE_DIR, 'static')),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# for media
+# for media, on branch 'gallery'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

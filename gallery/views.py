@@ -7,7 +7,6 @@ from .forms import PostForm, CommentForm
 from .models import Post
 
 
-
 class HomePageView(ListView):
     model = Post
     template_name = 'gallerymain.html'
@@ -21,10 +20,12 @@ class CreatePostView(CreateView):
     form_class = PostForm
     template_name = 'gallerypost.html'
     success_url = reverse_lazy('gallery_main')
+    
 
 class DetailPostView(DetailView):
     model = Post
     template_name = 'gallerydetail.html'
+
 
 class DeletePostView(DeleteView):
     model = Post
@@ -39,11 +40,13 @@ class UpdatePostView(UpdateView):
     def get_absolute_url(self):
         return reverse('gallery_detail', kwargs={'pk': self.pk})
 
-
+#comment
 def gallerycomment(request, pk):
     post = get_object_or_404(Post, pk=pk)
+
     if request.method == "POST":
         form = CommentForm(request.POST)
+
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post

@@ -45,6 +45,6 @@ urlpatterns = [
     path('', include('gallery.urls')),
 ]
 
-#for media in app gallery
+#for media in app 'gallery'
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

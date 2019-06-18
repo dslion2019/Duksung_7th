@@ -1,0 +1,67 @@
+<!--{% extends "gallerybase.html" %}-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+<!--{% block content %}-->
+
+<style>
+
+    .content-wrapper {
+        
+    }
+
+    .image {
+        margin: 1.5%;
+        vertical-align: top;"
+    }
+
+    .gallery-buttons {
+        clear: both;
+    }
+    
+    
+</style>
+
+</head>
+
+<header>
+
+    <h1> gallery main </h1>
+
+</header>
+
+<body>
+
+<!-- images display-->
+
+<div class="content-wrapper">
+
+{% for post in post_list %}
+        <a href="{% url 'gallery_detail' post.pk %}">
+            <img class="image" src="{{ post.cover.url }}" alt="{{ post.birthday }}" width="30%"/>
+        </a>
+{% endfor %}
+
+</div>
+
+
+<!-- buttons -->
+<div class="gallery-buttons">
+    <a href="{% url 'gallery_add' %}">
+        <input type=button value="사진 올리기">
+    </a>
+</div>
+
+</body>
+
+<footer>
+</footer>
+
+</html>
+
+<!--{% endblock %}-->
