@@ -56,8 +56,9 @@
 
 <!-- comment create button -->
 <a href="{% url 'gallery_add_comment' pk=post.pk %}">
-    <input type="button" name="leave_comment" value="댓글쓰기">
+    <input type="button" name="leave_comment" value="댓글쓰기" style="margin: 20px 0;">
 </a>
+<br>
 
 <!-- comments display from users -->
 {% for comment in post.comments.all %}

@@ -3,17 +3,26 @@ from django.urls import reverse_lazy, reverse
 from django.utils import timezone
 from django.shortcuts import get_object_or_404, redirect, render
 
+#forms
 from .forms import PostForm, CommentForm
 from .models import Post
+
+#pagination
+from django.core.paginator import Paginator
 
 
 class HomePageView(ListView):
     model = Post
     template_name = 'gallerymain.html'
     context_object_name ='post_list'
+    
+    #pagination
+    paginate_by = 8
 
     def get_queryset(self):
         return Post.objects.all().order_by('-birthday')
+
+
 
 class CreatePostView(CreateView):
     model = Post
@@ -56,5 +65,7 @@ def gallerycomment(request, pk):
         form = CommentForm()
     return render(request, 'galleryaddcomment.html', {'form': form})
 
+
+    
         
     

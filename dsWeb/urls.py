@@ -35,14 +35,9 @@ urlpatterns = [
 
 
 
-
-    
-
-
-
     #app gallery path
-    path('gallery/admin/', admin.site.urls),
-    path('', include('gallery.urls')),
+    path('admin/', admin.site.urls),
+    path('gallery/', include('gallery.urls')),
 ]
 
 #for media in app 'gallery'
