@@ -6,12 +6,12 @@ from django.views.generic import ListView, RedirectView
 from schedule.models import Schedule
 
 
-class ScheduleListView(ListView):
+class EventListView(ListView):
     template_name = 'schedule_list.html'
     model = Schedule
 
 
-class ScheduleCreateView(RedirectView):
+class EventCreateView(RedirectView):
     url = reverse_lazy('list')
 
     def post(self, request, *args, **kwargs):
@@ -21,15 +21,15 @@ class ScheduleCreateView(RedirectView):
 
         if title and start_date and end_date:
             Schedule.objects.create(title=title, start_date=start_date, end_date=end_date)
-            return super(ScheduleCreateView, self).post(request, *args, **kwargs) 
+            return super(EventCreateView, self).post(request, *args, **kwargs) 
         else:
             raise Http404
 
 
-class ScheduleDeleteView(RedirectView):
+class EventDeleteView(RedirectView):
     url = reverse_lazy('list')
 
     def get(self, request, *args, **kwargs):
-        schedule = get_object_or_404(Event, pk=kwargs.get('pk'))
+        schedule = get_object_or_404(Schedule, pk=kwargs.get('pk'))
         schedule.delete()
-        return super(ScheduleDeleteView, self).get(request, *args, **kwargs)
+        return super(EventDeleteView, self).get(request, *args, **kwargs)
