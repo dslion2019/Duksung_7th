@@ -29,5 +29,13 @@ class Comment(models.Model):
     def __str__(self):
         return self.content
 
+class Like(models.Model):
+    post = models.ForeignKey('gallery.Post', related_name='like_action', on_delete=models.CASCADE)
+    likes = models.ManyToManyField(to='gallery.Post', related_name='likes')
+
+    @property
+    def total_likes(self):
+        return self.likes.count()
+
 
 

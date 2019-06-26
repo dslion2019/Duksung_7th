@@ -10,5 +10,4 @@ urlpatterns = [
     path('<int:pk>/delete/', DeletePostView.as_view(), name='gallery_delete'),
     path('<int:pk>/edit/', UpdatePostView.as_view(), name='gallery_edit'),
     path('<int:pk>/addcomment/',views.gallerycomment, name='gallery_add_comment'),
-   
     ]

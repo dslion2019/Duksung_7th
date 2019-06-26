@@ -1,29 +1,24 @@
-<!--{% extends "gallerybase.html" %}-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!--{% block content %}-->
+{% extends "gallerybase.html" %}
 
-<style>
+{% block content %}
 
-
-</style>
-</head>
-
-<body>
-
-<br>
-<br>
 
 <!-- detailed image display-->
+
+<div class="container" id="gallery_container">
+
     <div class="gallery_item">
-        <img src="{{ post.cover.url }}" alt="{{ post.birthday }}" style="display: block; margin: 0 auto; max-width: 50%;">
+        <img src="{{ post.cover.url }}" alt="{{ post.birthday }}" style="display: block; margin: 0 auto; max-width: 100%">
     </div>
 
+<br>
+<br>
 <!--image info display -->
     <strong> {{ post.title }} </strong>
+    <br>
+    <br>
     <p> {{ post.caption }} </p>
-    <p> {{ post.birthday }} </p>
+    <p class="birthday"> {{ post.birthday }} </p>
 
     <br>
 
@@ -41,7 +36,7 @@
 <!-- CRUD; only visible to content creators --> 
 
     <a href="{% url 'gallery_delete' post.pk %}">
-        <input type="button" value="삭제하기">
+        <input type="button" value="삭제하기" class="btn btn-dark">
     </a>
 <br>
     <a href="{% url 'gallery_edit' post.pk %}">
@@ -50,6 +45,7 @@
 
 
 <br>
+
 
 
 <!------------------------------------- comment ------------------------------------>
@@ -66,19 +62,26 @@
 <table class="table" style="item-align: left; table-layout: fixed;">
     <tbody>
         <tr>
-            <td width="20%">{{ comment.author }}</td><td> {{ comment.content }}</td>
+            <td width="20%">{{ comment.author }}</td>
+            <td> {{ comment.content }}</td>
+            <td>
+                <form method="post">
+                    {% csrf_token %}
+                    <input class="btn btn-dark" type="submit" value="지웁니다" name="delete">
+                </form>
+            </td>
         </tr>     
     </tbody>
 </table>
 
 <!-- before the very first comment -->
-{% empty %} <p> 감명받은 사자님은 댓글을 남겨보세요. </p>
+{% empty %}
+<p> 감명받은 사자님은 댓글을 남겨보세요. </p>
 
 {% endfor %}
 
+</div>
 
-</body>
-</html>
 
-<!--{% endblock %}-->
+{% endblock %}
 

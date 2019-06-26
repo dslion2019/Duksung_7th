@@ -13,11 +13,37 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
 <style>
-    * {font-family: 'Malgun Gothic'; }
+*{
+    font-family: 'Malgun Gothic';}
 
-{% block content %}
+a:hover{
+      text-decoration: none;
+}
+
+/* bootstrap .container for responsive layout */
+#gallery_container{
+    padding-top: 2rem;
+}
+
+td {
+    word-wrap: break-word;
+    }
+
+#id_author{
+    display: block;
+    }
+
+#id_content{
+    display: block;
+    }
+</style>
+
 </head>
-<body>
+
 </body>
-</html>
+{% block content %}
+
 {% endblock %}
+</body>
+
+</html>

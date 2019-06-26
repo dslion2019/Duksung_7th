@@ -104,12 +104,53 @@ body {
 </div>
 
 <!-- pagination -->
+{% for post in post_list %}  
+{% endfor %}
 
+{# Pagination #}
+{% if is_paginated %}
+  <nav>
+    <ul class="pagination">
+        <li>
+        <a href="?page=1">First</a>
+        </li>
+      {% if page_obj.has_previous %}
+        <li>
+          <a href="?page={{ page_obj.previous_page_number }}">
+            <span>Previous</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="#">
+            <span>Previous</span>
+          </a>
+        </li>
+      {% endif %}
 
+      {% for page in page_range %}
+        <li {% if page == page_obj.number %}class="active"{% endif %}>
+          <a href="?page={{ page }}">{{ page }}</a>
+        </li>
+      {% endfor %}
 
+      {% if page_obj.has_next %}
+        <li>
+          <a href="?page={{ page_obj.next_page_number }}">
+            <span>Next</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="#">
+            <span>Next</span>
+          </a>
+        </li>
 
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
 <!-- END MAIN -->
-</div>
 
-</body>
-</html>
+
