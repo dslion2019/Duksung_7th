@@ -1,9 +1,9 @@
 from django.urls import path
-from schedule.views import ScheduleListView, ScheduleCreateView, ScheduleDeleteView
+from schedule.views import EventListView, EventCreateView, EventDeleteView
 
 
 urlpatterns = [
-    path('', ScheduleListView.as_view(), name='list'),
-    path('create/', ScheduleCreateView.as_view(), name='create'),
-    path('<int:pk>/delete/', ScheduleDeleteView.as_view(), name='delete'),
+    path('', EventListView.as_view(), name='list'),
+    path('create/', EventCreateView.as_view(), name='create'),
+    path('<int:pk>/delete/', EventDeleteView.as_view(), name='delete'),
 ]

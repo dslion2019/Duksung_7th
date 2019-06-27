@@ -1,66 +1,65 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-{% load static %}
-  <meta charset='utf-8' />
-  
-  <link href='{% static 'fullcalendar/core/main.css' %}' rel='stylesheet' />
-  <link href='{% static 'fullcalendar/daygrid/main.css' %}' rel='stylesheet' />
-  <script src='{% static 'fullcalendar/core/main.js' %}'></script>
-  <script src='{% static 'fullcalendar/daygrid/main.js' %}'></script>    
+    <meta charset="UTF-8">
+    <title>덕성여자대학교 멋쟁이사자처럼</title>
 
-  <script type="text/javascript">
-      document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
- plugins: [ 'dayGrid' ],
-    defaultView: 'dayGridMonth',
-    header: {
-      center: 'addEventButton'
-    },
-    customButtons: {
-      addEventButton: {
-        text: '일정 추가',
-        click: function() {
-          var dateStr = prompt('Enter a date in YYYY-MM-DD format');
-          var date = new Date(dateStr + 'T00:00:00'); // will be in local time
-          var usertitle = prompt('일정 제목');
 
-          if (!isNaN(date.valueOf())) { // valid?
-            calendar.addEvent({
-              title: usertitle,
-              start: date,
-              allDay: true
+    {% load static %}
+
+
+    <link href='{% static 'fullcalendar/core/main.css' %}' rel='stylesheet' />
+    <link href='{% static 'fullcalendar/daygrid/main.css' %}' rel='stylesheet' />
+
+    <script src="{% static 'fullcalendar/core/main.js' %}"></script>
+    <script src="{% static 'fullcalendar/daygrid/main.js' %}"></script>
+    <script src="{% static 'fullcalendar/interaction/main.js' %}"></script>
+    <script src="{% static 'fullcalendar/moment/main.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ['dayGrid', 'interaction', 'moment'],
+                defaultView: 'dayGridMonth',
+                selectable: true,
+                events: [
+                    {% for event in object_list %}
+                        {
+                            id: {{ event.id }},
+                            title: '{{ event.title }}',
+                            start: '{{ event.start_date|date:"c" }}',
+                            end: '{{ event.end_date|date:"c" }}',
+                        },
+                    {% endfor %}
+                ],
+                eventClick: function (info) {
+                    if (confirm(info.event.title + '을(를) 삭제하시겠습니까?')){
+                        document.location.href = info.event.id + '/delete/';
+                    }
+                },
+                select: function (selectionInfo) {
+                    var input = prompt('일정 제목을 입력하세요 !');
+                    if(input) {
+                        document.getElementById('title').value = input;
+                        document.getElementById('start_date').value = selectionInfo.startStr;
+                        document.getElementById('end_date').value = selectionInfo.endStr;
+                        document.getElementById("event_form").submit();
+                    }
+                }
             });
-            alert('Great. Now, update your database...');
-          } else {
-            alert('Invalid date.');
-          }
-        
-        }
-      }
-    }
-
-});
-
-
-  calendar.render();
-});
-  </script>
+            calendar.render();
+        });
+    </script>
 </head>
-<body style="text-align:center;">
-<h1>Schedule</h1>
-    <div id='calendar'  style="display:inline-block; width:740px;"></div>
+
+<body style="text-align:center">
+<h1>덕성여대 멋쟁이사자처럼 일정</h1>
+    <div style="max-width:900px; margin:0 auto;" id='calendar'></div>
     <form action="{% url 'create' %}" method="post" id="event_form">
         {% csrf_token %}
         <input type="hidden" name="title" id="title">
         <input type="hidden" name="start_date" id="start_date">
         <input type="hidden" name="end_date" id="end_date">
     </form>
-
 </body>
-
-
-
-
 </html>
