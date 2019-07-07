@@ -1,11 +1,20 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from .forms import TipForm
+from login.forms import LoginForm
 from .models import Tip
+from login.models import Login
 from django.utils import timezone
 from django.http import HttpResponseRedirect,Http404,HttpResponse
 import os
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
+from django.contrib import auth
+from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView
+###############################################################################################3
 # Create your views here.
+@login_required
 def post(request):
     if request.method=="POST":
         form=TipForm(request.POST,request.FILES)
@@ -30,8 +39,9 @@ def detail(request,tip_id):
 
     return render(request,'detail.html',{'tip':tip_detail})
 
-
+@login_required
 def edit(request,pk):
+
     tip=get_object_or_404(Tip,pk=pk)
     if request.method=="POST":
         form=TipForm(request.POST,request.FILES,instance=tip)
@@ -42,14 +52,16 @@ def edit(request,pk):
             return HttpResponseRedirect('/tip/post_list')
 
     else:
-        form=TipForm(instance=tip)
-        return render(request,'edit.html',{'form':form})
+        if tip.u_id == User.objects.get(username = request.user.get_username()):
+            form=TipForm(instance=tip)
+            return render(request,'edit.html',{'form':form})
 
-
+@login_required
 def delete(request,pk):
     tip=Tip.objects.get(id=pk)
-    tip.delete()
-    return redirect('post_list')
+    if tip.u_id == User.objects.get(username = request.user.get_username()):
+        tip.delete()
+        return redirect('post_list')
 
 def deleteall(request):
     tips=Tip.objects.all()
@@ -58,7 +70,7 @@ def deleteall(request):
     return render(request,'show.html',{'tips':tips})
 
 
-
+@login_required
 def download(request,pk):
     upload=get_object_or_404(Tip,pk=pk)
     file_url=upload.file.url[1:]
@@ -70,9 +82,9 @@ def download(request,pk):
         raise Http404   
   
 
-
+@login_required
 def post_list(request):
-    PAGE_ROW_COUNT=5
+    PAGE_ROW_COUNT=10
     PAGE_DISPLAY_COUNT=5
 
     total_list=Tip.objects.all().order_by('-id')
@@ -117,3 +129,5 @@ def post_list(request):
         'toPageCount':toPageCount,
         'startPageNum':startPageNum,
         'endPageNum':endPageNum})
+
+
