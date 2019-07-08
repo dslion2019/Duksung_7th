@@ -1,18 +1,40 @@
 <!--후기방 내용 작성 페이지-->
-<style>
-    h1 {background-color : #7C2529; color : white; text-align:center;}
-    h2 {background-color : #B4A6AB; text-align : center}
-    * { background-color : linen; text-align : center;}
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>rpost</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-    </style>
+<style>
+    @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+    @font-face { font-family: 'Atomy-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Atomy-Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+    h1 {margin: 20px;
+        padding: 15px;
+        background-color: #7C2529;
+        color: white;
+        text-align: center;
+        font-family: 'yg-jalnan';}
+
+    button{
+        font-family: 'Atomy-Bold';
+    }
+
+    #good {
+        font-family: 'Atomy-Bold';
+    }
+    
+</style>
+
+<body style="background-color:linen">
 <h1>후기 작성</h1>
 <div class='container'>
     <form method = 'POST'>
         {% csrf_token %}
         <table>
-           <h2 style = "width:200px; height:35px; text-alingn:center; ">카테고리</h2>
+        <div>
+           <span style="font-family:Atomy-Bold; background-color : #B4A6AB; margin:10px; padding:5px; width:120px; height:40px; font-size:20px;">카테고리</span>
             <!--{{form.title}}-->
-                <select name = "title" require id = "id_title" style="width:200px; height:25px;">
+                <select name = "title" require id = "id_title">
                     <option value selected>선택</option>
                     <option value="01">멋사MT</option>
                     <option value="02">아이디어톤</option>
@@ -20,21 +42,36 @@
                     <option value="04">세션</option>
                     <option value="05">기타</option>
                 <select>
+        </div>
+        <br>
 
-           <h2 style = "width:200px; height:35px; text-align:center; ">이름</h2>
+        <div class="name">
+           <span style="font-family:Atomy-Bold; background-color : #B4A6AB; margin:10px; padding:5px; width:120px; height:40px; font-size:20px;">이름</span>
            <!--{{form.name}}-->
-                <input type="text" name="name" maxlength="300" required id = "id_name" style="width:200px; height:25px; " >
-           <h2 style = "width:200px; height:35px; text-align:center; ">역할</h2>
+                <input type="text" name="name" maxlength="300" required id = "id_name" style="width:200px; height:25px;" >
+        </div>
+        <br>
+
+        <div class="role">
+           <span style="font-family:Atomy-Bold; background-color : #B4A6AB; margin:10px; padding:5px; width:120px; height:40px; font-size:20px;">맡은 역할</span>
            <!--{{form.role}}-->
                 <input type="text" name="role" maxlength="300" required id = "id_role" style="width:200px; height:25px; ">
-           <h2 style = "width:200px; height:35px; text-align:center; ">후기</h2>
-                <br>
+        <div>
+        <br>
+
+        <div class="body">
+           <span style="font-family:Atomy-Bold; background-color : #B4A6AB; margin:10px; padding:5px; width:120px; height:40px; font-size:20px;">후기</span>
+           <br>
+           <br>
             <!--{{form.body}}-->
-                <textarea name="body" cols="80" rows="20" required id="id_body">
-                </textarea>
+                <textarea name="body" cols="137" rows="20" required id="id_body"></textarea>
+        <div>
+
         </table>
         <br>
-        <input class = "btn btn-dark" type = "submit" value="저장">
+        <input class = "btn btn-success" id = "good" type = "submit" value="저장">
+        <button type = "button" class="btn btn-danger" onclick="location.href='{% url 'rshow' %}'">취소</button>
     </form>
 </div>
- 
+</body>
+</html>

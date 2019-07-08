@@ -19,6 +19,5 @@ import review.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', review.views.rshow, name='rshow'),
     path('review/', include('review.urls')),
 ]

@@ -11,3 +11,6 @@ class ReviewForm(forms.ModelForm):
             "role" : "역할",
             "body" : "후기"
         }
+        widgets = {
+            'body':forms.Textarea(attrs={'rows':20, 'cols':137}),
+        }
