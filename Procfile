@@ -1,1 +1,1 @@
-web: gunicorn Duksung_7th.wsgi --log-file -
+web: gunicorn dsWeb.settings.wsgi --log-file -
