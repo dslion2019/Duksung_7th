@@ -1,0 +1,1 @@
+web: gunicorn Duksung_7th.wsgi --log-file -
