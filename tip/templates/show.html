@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <h1 id="info1">Tip방</h1>
-{% if user.is_authenticated %}
+<!--{{%if request.session.u_id%}}-->
 <button id="info1" style="margin-left:85%;" type="button" class="btn btn-outline-secondary"><a href="{% url 'post' %}">글 작성하러 가기</a></button>
-{% if user.is_authenticated %}
+<!--{{%if request.session.u_id%}}-->
 <table id="info1" class="table">
     <thead>
         <tr>
@@ -38,10 +38,13 @@
 
 
 </table>
-{% else %}
-<a href='{%url "login"%}'>로그인</a>
+<!--{% else %}
+    <a href='{%url "login"%}'>로그인</a>
 
-{%endif%}
+{%endif%}-->
+
+
+
 <hr>
 
 
@@ -82,8 +85,10 @@
   </ul>
   </nav>
 </div>
-<form id="info1" action="{%url 'logout'%}" method="POST">
+<!--
+<form id="info1"  method="POST">
         {% csrf_token %}
-<input id="info1" type="submit" value="로그아웃">
+        <input id="info1" type="submit" value="로그아웃">
+
 </form>
-{%endif%}
+{%endif%}-->

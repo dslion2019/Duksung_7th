@@ -7,20 +7,20 @@
     <div id="info1" class="container">
     
     <div id="info1" class="card">
-    <h5 id="info1" class="card-header">{{tip.title}}</h5>
-    <p id="info1" class="card-body">{{tip.body}}</p>
-    <footer id="info1" class="blockquote-footer">등록일:{{tip.update_date}}</footer>
+    <h5 id="info1" class="card-header">{{tip_detail.title}}</h5>
+    <p id="info1" class="card-body">{{tip_detail.body}}</p>
+    <footer id="info1" class="blockquote-footer">등록일:{{tip_detail.update_date}}</footer>
 </div>
 <button id="info1" type="button" class="btn btn-primary"> <a href="{% url 'post_list' %}" style="color: white">목록</a></button>
-<button id="info1" type="button" class="btn btn-primary"><a href="{% url 'delete' pk=tip.pk %}" style="color: white">삭제</a></button>
-<button id="info1" type="button" class="btn btn-primary"><a href="{% url 'edit' pk=tip.pk %}" style="color: white">글 수정하기</a></button>
-    {% if tip.file %}
+<button id="info1" type="button" class="btn btn-primary"><a href="{% url 'delete' pk=tip_detail.pk %}" style="color: white">삭제</a></button>
+<button id="info1" type="button" class="btn btn-primary"><a href="{% url 'edit' pk=tip_detail.pk %}" style="color: white">글 수정하기</a></button>
+    {% if tip_detail.file %}
 
-        <button id="info1" type="button" class="btn btn-primary"><a href="{% url 'download' pk=tip.pk %}" style="color: white">다운로드</a></button>
+        <button id="info1" type="button" class="btn btn-primary"><a href="{% url 'download' pk=tip_detail.pk %}" style="color: white">다운로드</a></button>
     
    {% endif %}
 
    </div>
 
-<p id="info1" style="display:none">{{tip.update_counter}}</p>
+<p id="info1" style="display:none">{{tip_detail.update_counter}}</p>
 

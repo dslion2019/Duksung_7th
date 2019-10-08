@@ -1,8 +1,6 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from .forms import TipForm
-from login.forms import LoginForm
 from .models import Tip
-from login.models import Login
 from django.utils import timezone
 from django.http import HttpResponseRedirect,Http404,HttpResponse
 import os
@@ -14,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 ###############################################################################################3
 # Create your views here.
-@login_required
+
 def post(request):
     if request.method=="POST":
         form=TipForm(request.POST,request.FILES)
@@ -37,11 +35,9 @@ def post(request):
 def detail(request,tip_id):
     tip_detail=get_object_or_404(Tip,pk=tip_id)
 
-    return render(request,'detail.html',{'tip':tip_detail})
+    return render(request,'detail.html',{'tip_detail':tip_detail})
 
-@login_required
 def edit(request,pk):
-
     tip=get_object_or_404(Tip,pk=pk)
     if request.method=="POST":
         form=TipForm(request.POST,request.FILES,instance=tip)
@@ -52,16 +48,14 @@ def edit(request,pk):
             return HttpResponseRedirect('/tip/post_list')
 
     else:
-        if tip.u_id == User.objects.get(username = request.user.get_username()):
-            form=TipForm(instance=tip)
-            return render(request,'edit.html',{'form':form})
+        form=TipForm(instance=tip)
+        return render(request,'edit.html',{'form':form})
 
-@login_required
+
 def delete(request,pk):
-    tip=Tip.objects.get(id=pk)
-    if tip.u_id == User.objects.get(username = request.user.get_username()):
-        tip.delete()
-        return redirect('post_list')
+    tip=Tip.objects.get(pk=pk)
+    tip.delete()
+    return redirect('post_list')
 
 def deleteall(request):
     tips=Tip.objects.all()
@@ -70,10 +64,11 @@ def deleteall(request):
     return render(request,'show.html',{'tips':tips})
 
 
-@login_required
+
 def download(request,pk):
     upload=get_object_or_404(Tip,pk=pk)
     file_url=upload.file.url[1:]
+    print(file_url)
     if os.path.exists(file_url):
         with open(file_url,'rb') as fh:
             response=HttpResponse(fh.read(),content_type="application/octet-stream")
@@ -82,7 +77,7 @@ def download(request,pk):
         raise Http404   
   
 
-@login_required
+
 def post_list(request):
     PAGE_ROW_COUNT=10
     PAGE_DISPLAY_COUNT=5
