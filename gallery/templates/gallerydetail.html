@@ -50,38 +50,42 @@
 
 <!------------------------------------- comment ------------------------------------>
 
-<!-- comment create button -->
-<a href="{% url 'gallery_add_comment' pk=post.pk %}">
-    <input type="button" name="leave_comment" value="댓글쓰기" style="margin: 20px 0;">
-</a>
-<br>
+<!-- 로그인한 사람만 댓글창 보임 -->
+<!--{% if request.user.is_authenticated %}-->
 
-<!-- comments display from users -->
-{% for comment in post.comments.all %}
+    <!-- comment create button -->
+    <a href="{% url 'gallery_add_comment' pk=post.pk %}">
+        <input type="button" name="leave_comment" value="댓글쓰기" style="margin: 20px 0;">
+    </a>
+    <br>
 
-<table class="table" style="item-align: left; table-layout: fixed;">
-    <tbody>
-        <tr>
-            <td width="20%">{{ comment.author }}</td>
-            <td> {{ comment.content }}</td>
-            <td>
-                <form method="post">
-                    {% csrf_token %}
-                    <input class="btn btn-dark" type="submit" value="지웁니다" name="delete">
-                </form>
-            </td>
-        </tr>     
-    </tbody>
-</table>
+    <!-- comments display from users -->
+    {% for comment in post.comments.all %}
 
-<!-- before the very first comment -->
-{% empty %}
-<p> 감명받은 사자님은 댓글을 남겨보세요. </p>
+    <table class="table" style="item-align: left; table-layout: fixed;">
+        <tbody>
+            <tr>
+                <td width="20%">{{ comment.author }}</td>
+                <td> {{ comment.content }}</td>
+                <td>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input class="btn btn-dark" type="submit" value="지웁니다" name="delete">
+                    </form>
+                </td>
+            </tr>     
+        </tbody>
+    </table>
 
-{% endfor %}
+    {% empty %}
+    <p> 감명받은 사자님은 댓글을 남겨보세요. </p>
 
+    {% endfor %}
+
+<!-- {% else %} -->
+
+<!-- {% endif %} -->
 </div>
-
 
 {% endblock %}
 

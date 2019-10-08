@@ -3,6 +3,7 @@ from django.views import View
 from django.urls import reverse_lazy, reverse
 from django.utils import timezone
 from django.shortcuts import get_object_or_404, redirect, render
+# from django.core.exceptions import PermissionDenied
 
 #forms
 from gallery.forms import PostForm, CommentForm
