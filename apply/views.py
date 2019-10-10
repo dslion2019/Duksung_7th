@@ -58,7 +58,7 @@ def form(request):
 #     return render(request, 'adview.html', {'applies' : applies})
 
 def adview(request):
-    applies = Apply.objects.all()
+    applies = Apply.objects.filter(isFinal=True)
     return render(request, 'adview.html', {'applies' : applies})
 
 def save(request):
