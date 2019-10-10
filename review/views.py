@@ -36,7 +36,7 @@ def redit(request, pk):
 
         else:
                 form = ReviewForm(instance=review) 
-                return render(request, 'rpost.html',{'form' : form})
+                return render(request, 'redit.html',{'form' : form})
 
 def delete(request, pk):
         review = Review.objects.get(id=pk)

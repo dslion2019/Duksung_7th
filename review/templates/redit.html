@@ -1,12 +1,69 @@
 <!--후기방 내용 수정 페이지-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>rpost</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<style>
+    @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+    @font-face { font-family: 'Atomy-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Atomy-Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+    h1 {margin: 20px;
+        padding: 15px;
+        background-color: #7C2529;
+        color: white;
+        text-align: center;
+        font-family: 'yg-jalnan';}
+    textarea{resize:none;}
+
+    button{
+        font-family: 'Atomy-Bold';
+    }
+
+    #good {
+        font-family: 'Atomy-Bold';
+    }
+
+    
+</style>
+
+<body style="background-color:linen">
 <h1>후기 수정</h1>
 <div class='container'>
     <form method = 'POST'>
         {% csrf_token %}
         <table>
-            {{form.as_table}}
+        <div>
+           <span style="font-family:Atomy-Bold; background-color : #B4A6AB; margin:10px; padding:5px; width:120px; height:40px; font-size:20px;">카테고리</span>
+            {{form.title}}
+        </div>
+        <br>
+
+        <div class="name">
+           <span style="font-family:Atomy-Bold; background-color : #B4A6AB; margin:10px; padding:5px; width:120px; height:40px; font-size:20px;">이름</span>
+            {{form.name}}
+        </div>
+        <br>
+
+        <div class="role">
+           <span style="font-family:Atomy-Bold; background-color : #B4A6AB; margin:10px; padding:5px; width:120px; height:40px; font-size:20px;">맡은 역할</span>
+           {{form.role}}
+        <div>
+        <br>
+
+        <div class="body">
+           <span style="font-family:Atomy-Bold; background-color : #B4A6AB; margin:10px; padding:5px; width:120px; height:40px; font-size:20px;">후기</span>
+            <br>
+            <br>
+            {{form.body}}
+        <div>
+
+
         </table>
         <br>
-        <input class = "btn btn-dark" type = "submit" value="수정">
+        <input class = "btn btn-success" id = "good" type = "submit" value="저장">
+        <button type = "button" class="btn btn-danger" onclick="location.href='{% url 'rshow' %}'">취소</button>
     </form>
 </div>
+</body>
+</html>
