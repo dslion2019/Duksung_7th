@@ -1,0 +1,18 @@
+{% extends "gallerybase.html" %}
+
+{% block content %}
+
+<div class="container" id="gallery_container">
+    <h1>사진 올리기</h1>
+
+    <div class="form_box">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">올리기</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock content %}

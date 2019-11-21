@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    padding: 20px;
+
+}
+
+/* Center website */
+.main {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.row {
+    margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+    padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+
+}
+
+/* Clear floats after rows 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+*/
+
+/* Content */
+.content {
+    background-color: white;
+    padding: 2rem;
+
+}
+
+/* Responsive layout - two column-layoout */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - two columns stack on top of each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+
+</head>
+
+
+<body>
+
+<header>
+</header>
+<!-- MAIN (Center website) -->
+<main>
+
+
+<!-- Gallery Grid -->
+<div class="row">
+
+    {% for post in post_list %}
+    <a href="{% url 'gallery_detail' post.pk %}">
+    <div class="column" style="height: 300px; overflow: hidden;"> 
+        <div class="content">
+            <img src="{{ post.cover.url }}" alt="{{ post.birthday }}" style="width: 100%;">
+        </div>
+    
+    </div>
+    </a>
+    {% endfor %}
+
+</div>
+<!-- END GRID -->
+
+<!-- detail image view ; logged-in only -->
+<br>
+<!-- buttons -->
+<div class="gallery-buttons" style="clear: both;">
+    <a href="{% url 'gallery_add' %}">
+        <input type=button value="사진 올리기">
+    </a>
+</div>
+
+<!-- pagination -->
+{% for post in post_list %}  
+{% endfor %}
+
+{# Pagination #}
+{% if is_paginated %}
+  <nav>
+    <ul class="pagination">
+        <li>
+        <a href="?page=1">First</a>
+        </li>
+      {% if page_obj.has_previous %}
+        <li>
+          <a href="?page={{ page_obj.previous_page_number }}">
+            <span>Previous</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="#">
+            <span>Previous</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {% for page in page_range %}
+        <li {% if page == page_obj.number %}class="active"{% endif %}>
+          <a href="?page={{ page }}">{{ page }}</a>
+        </li>
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+        <li>
+          <a href="?page={{ page_obj.next_page_number }}">
+            <span>Next</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="#">
+            <span>Next</span>
+          </a>
+        </li>
+
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
+<!-- END MAIN -->
+</main>
+
+<footer>
+</footer>
+

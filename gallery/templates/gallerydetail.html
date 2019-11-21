@@ -1,0 +1,91 @@
+{% extends "gallerybase.html" %}
+
+{% block content %}
+
+
+<!-- detailed image display-->
+
+<div class="container" id="gallery_container">
+
+    <div class="gallery_item">
+        <img src="{{ post.cover.url }}" alt="{{ post.birthday }}" style="display: block; margin: 0 auto; max-width: 100%">
+    </div>
+
+<br>
+<br>
+<!--image info display -->
+    <strong> {{ post.title }} </strong>
+    <br>
+    <br>
+    <p> {{ post.caption }} </p>
+    <p class="birthday"> {{ post.birthday }} </p>
+
+    <br>
+
+<!-- buttons; for all users logged in -->
+
+    <a href="{% url 'gallery_main' %}">
+        <input type="button" value="목록으로">
+    </a>
+<br>
+    <a href="{% url 'gallery_add' %}">
+        <input type="button" value="새로운 사진">
+    </a>
+<br>
+
+<!-- CRUD; only visible to content creators --> 
+
+    <a href="{% url 'gallery_delete' post.pk %}">
+        <input type="button" value="삭제하기" class="btn btn-dark">
+    </a>
+<br>
+    <a href="{% url 'gallery_edit' post.pk %}">
+        <input type="button" value="수정하기">
+    </a>
+
+
+<br>
+
+
+
+<!------------------------------------- comment ------------------------------------>
+
+<!-- 로그인한 사람만 댓글창 보임 -->
+<!--{% if request.user.is_authenticated %}-->
+
+    <!-- comment create button -->
+    <a href="{% url 'gallery_add_comment' pk=post.pk %}">
+        <input type="button" name="leave_comment" value="댓글쓰기" style="margin: 20px 0;">
+    </a>
+    <br>
+
+    <!-- comments display from users -->
+    {% for comment in post.comments.all %}
+
+    <table class="table" style="item-align: left; table-layout: fixed;">
+        <tbody>
+            <tr>
+                <td width="20%">{{ comment.author }}</td>
+                <td> {{ comment.content }}</td>
+                <td>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input class="btn btn-dark" type="submit" value="지웁니다" name="delete">
+                    </form>
+                </td>
+            </tr>     
+        </tbody>
+    </table>
+
+    {% empty %}
+    <p> 감명받은 사자님은 댓글을 남겨보세요. </p>
+
+    {% endfor %}
+
+<!-- {% else %} -->
+
+<!-- {% endif %} -->
+</div>
+
+{% endblock %}
+
