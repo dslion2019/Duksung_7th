@@ -1,7 +1,4 @@
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,17 +8,14 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
     <title> 지원서 확인 </title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
 
     <!-- Bootstrap core CSS -->
-<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
     <style>
-
-      
-
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -52,13 +46,13 @@
   </header>
 
   <main role="main" class="inner cover">
-    <h1 class="cover-heading"> My name is {{ applys.name }}  </h1>
+    <h1 class="cover-heading"> 이름 : {{ applys.name }}  </h1>
     <p class="lead"> 학번 :  {{ applys.student_id }} </p>
     <p class="lead"> 전공 : {{applys.major}} </p>
     <p class="lead"> 이메일 : {{applys.email}} </p>
     <p class="lead"> 연락처 : {{applys.phone}} </p>
     <p class="lead"> 지원동기 : {{applys.body}} </p>
-    <p class="lead">
+
     
       <a class="ba"  id="id_uploaded_file" href="{{ applys.file.url }}" download> <지원서 다운로드> </a>
     </p>
