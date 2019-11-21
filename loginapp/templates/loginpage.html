@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset = "utf-8">
+    <title>덕성멋사 : 로그인</title>
+    <link rel="stylesheet" href ="{% static 'css/loginpage.css' %}" type="text/css">
+    <link rel="javascript" href ="{% static 'javascript/loginpage.js' %}" type="text/js">
+</head>
+
+<body>
+    <div class = "container">
+        <h1>덕성멋사</h1>
+        <div class = "main">
+            <form method='POST' action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class = "login">
+                    <div class = "placeholder_box">
+                        <label for="placeholder">이메일</label>
+                        <input name="username" id="placeholder" type="text">
+                    </div>
+                    <br>
+                    <div class = "placeholder_box">
+                        <label for="placeholder">비밀번호</label>
+                        <input name="password" id="placeholder" type="password">
+                    </div>
+                    <br>
+                    <button type = "submit">로그인</button>
+                </div>
+            </form>
+            <hr>
+            <div class = "signuplink">
+                <a href = "{% url 'signup' %}">회원가입</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

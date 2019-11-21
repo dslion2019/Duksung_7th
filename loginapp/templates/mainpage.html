@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset = "utf-8">
+    <title>덕성멋사 : 메인페이지</title>
+    <!-- <link rel="stylesheet" href ="{% static 'css/loginpage.css' %}" type="text/css"> -->
+    <!-- <link rel="javascript" href ="{% static 'javascript/loginpage.js' %}" type="text/js"> -->
+</head>
+
+<body>
+    {% if not request.user.is_authenticated %}
+    <h1><a href = "{% url 'signup' %}">회원가입</a></h1>
+    {% endif %}
+    {% if request.user.is_authenticated %}
+    <h1>환영합니다, {{ user.username }}님</h1>
+    <h1>당신의 학번 : {{ user.stu_id }}</h1>
+    <h1>당신의 비밀번호 : {{ user.password }}</h1> 
+    <h1>당신의 기수 : {{ user.major }}</h1>
+    <h1>당신의 이름 : {{ user.username }}</h1>
+    <h1>당신의 이메일 : {{ user.email }}</h1>
+    <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                    <form id="logout" method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %} <input type="hidden" />
+                    </form>
+    {% else %}
+    <h1><a href = "{% url 'login' %}">로그인</a></h1>
+    {% endif %}
+</body>
+</html>
