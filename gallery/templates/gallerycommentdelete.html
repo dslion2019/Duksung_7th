@@ -1,0 +1,29 @@
+{% extends "gallerybase.html" %}
+
+{% block content %}
+
+<body>
+
+<div class="container" id="gallery_container">
+
+    <div class="gallery_form_content">
+        <form method="post">
+            {% csrf_token %}
+            <p> 사자님이 애써 쓰신 댓글 정말 삭제하시겠습니까? </p>
+        <br>
+
+</div>
+
+<!-- buttons -->
+        <input class="btn btn-dark" type="submit" value="지웁니다" name="delete">
+    <br>
+    <br>
+        <a href="{% url 'gallery_detail' post.pk %}">
+            <input type="button" value="아니요" name="nonaction">
+        </a>
+    </form>
+
+
+</div>
+
+{% endblock content %}

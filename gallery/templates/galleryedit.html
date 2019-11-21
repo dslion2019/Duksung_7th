@@ -1,0 +1,15 @@
+{% extends "gallerybase.html" %}
+
+{% block content %}
+
+<div class="container" id="gallery_container">
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+
+</div>
+
+{% endblock content %}

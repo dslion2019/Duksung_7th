@@ -14,10 +14,18 @@ db.sqlite3
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+#branch 'gallery' > app 'gallery'
+media/
 myvenv/
-
-
-
-
-
-
+.vscode/

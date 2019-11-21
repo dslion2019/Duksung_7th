@@ -19,9 +19,27 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 urlpatterns = [
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #app gallery path
     path('admin/', admin.site.urls),
-    path('', include('gallery.urls')),
+    path('gallery/', include('gallery.urls')),
 ]
 
+#for media in app 'gallery'
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
