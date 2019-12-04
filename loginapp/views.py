@@ -2,10 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-def userlist(request):
-    return render(request, 'userlist.html')
 
 def mainpage(request):
     return render(request, 'mainpage.html')
@@ -36,7 +35,7 @@ def signuppage(request):
             if userform.is_valid(): 
                 user = userform.save()
                 auth.login(request, user)
-            return redirect('mainpage')
+            return redirect('signupok')
     return render(request, 'signuppage.html')
 
 def logout(request):
@@ -44,3 +43,10 @@ def logout(request):
         auth.logout(request)
         return redirect('mainpage')
     return render(request, 'signuppage.html')
+
+@login_required
+def delete(request):
+    if request.method == 'POST':
+        request.user.delete()
+        return redirect('mainpage')
+    return render(request, 'mainpage')
